@@ -15,6 +15,13 @@ class CreatePqrsTable extends Migration
     {
         Schema::create('pqrs', function (Blueprint $table) {
             $table->id();
+            $table->string('affair',50);
+            $table->text('description');
+            $table->date('date');
+            $table->bigInteger('fk_user_id')->unsigned();
+            $table->bigInteger('fk_bussiness_id')->unsigned();
+            $table->foreign('fk_user_id')->references('id')->on('users');
+            $table->foreign('fk_bussiness_id')->references('id')->on('businesses');
             $table->timestamps();
         });
     }

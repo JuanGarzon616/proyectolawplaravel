@@ -15,6 +15,17 @@ class CreateBusinessesTable extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
+            $table->integer('nit')->unique();
+            $table->integer('tellephone1');
+            $table->integer('tellephone2');
+            $table->string('bussiness_name',100);
+            $table->string('name',30);
+            $table->string('password',50);
+            $table->string('mail',100);
+            $table->bigInteger('fk_economic_sector_id')->unsigned();
+            $table->bigInteger('fk_municipality_id')->unsigned();
+            $table->foreign('fk_economic_sector_id')->references('id')->on('economic_sectors');
+            $table->foreign('fk_municipality_id')->references('id')->on('municipalities');
             $table->timestamps();
         });
     }
