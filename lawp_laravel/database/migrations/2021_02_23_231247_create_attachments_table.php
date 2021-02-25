@@ -17,8 +17,12 @@ class CreateAttachmentsTable extends Migration
             $table->id();
             $table->string('url')->nullable();
             $table->string('archive');
-            $table->bigInteger('fk_pqr_id')->unsigned();
-            $table->foreign('fk_pqr_id')->references('id')->on('pqrs');
+            //$table->bigInteger('fk_pqr_id')->unsigned();
+            $table->foreignID('fk_pqr_id')
+                ->constrained()
+                ->references('id')
+                ->on('pqrs')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

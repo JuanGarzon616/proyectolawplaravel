@@ -18,10 +18,19 @@ class CreatePqrsTable extends Migration
             $table->string('affair',50);
             $table->text('description');
             $table->date('date');
-            $table->bigInteger('fk_user_id')->unsigned();
-            $table->bigInteger('fk_bussiness_id')->unsigned();
-            $table->foreign('fk_user_id')->references('id')->on('users');
-            $table->foreign('fk_bussiness_id')->references('id')->on('businesses');
+            /*$table->bigInteger('fk_user_id')->unsigned();
+            $table->bigInteger('fk_bussiness_id')->unsigned();*/
+            $table->foreignId('fk_user_id')
+                ->constrained()
+                ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreignId('fk_bussiness_id')
+                ->constrained()
+                ->references('id')
+                ->on('businesses')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -16,8 +16,11 @@ class CreateMunicipalitiesTable extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
             $table->string('name',45);
-            $table->bigInteger('fk_departaments_id')->unsigned();
-            $table->foreign('fk_departaments_id')->references('id')->on('departament');
+            //$table->bigInteger('fk_departaments_id')->unsigned();
+            $table->foreignId('fk_departaments_id')
+                ->constrained()
+                ->references('id')
+                ->on('departament');
             $table->timestamps();
         });
     }
