@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class economic_sector extends Model
 {
     use HasFactory;
+    protected $table = 'economic_sectors';
+    protected $primaryKey = 'id';
+    protected $fillable = 'name';
+
+    public function businesses()
+    {
+        return $this->hasMany(business::class);
+    }
 }

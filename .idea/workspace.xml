@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="378de9f4-7310-40f9-b3f5-951eee8b60a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_230836_create_municipalities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_230836_create_municipalities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_230921_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_230921_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_231200_create_businesses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_231200_create_businesses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_231223_create_pqrs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_231223_create_pqrs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_231247_create_attachments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/lawp_laravel/database/migrations/2021_02_23_231247_create_attachments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lawp_laravel/app/Models/attachment.php" beforeDir="false" afterPath="$PROJECT_DIR$/lawp_laravel/app/Models/attachment.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +156,7 @@
       <updated>1614118005333</updated>
       <workItem from="1614118016541" duration="8918000" />
       <workItem from="1614201017100" duration="583000" />
-      <workItem from="1614284267236" duration="5503000" />
+      <workItem from="1614284267236" duration="7214000" />
     </task>
     <servers />
   </component>
