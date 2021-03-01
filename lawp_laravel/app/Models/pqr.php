@@ -18,4 +18,12 @@ class pqr extends Model
         'fk_bussiness_id'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(user::class,'fk_user_id');
+    }
+    public function business()
+    {
+        return $this->belongsTo(business::class,'fk_bussiness_id');
+    }
 }

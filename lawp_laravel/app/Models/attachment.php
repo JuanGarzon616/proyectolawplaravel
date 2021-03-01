@@ -20,7 +20,7 @@ class attachment extends Model
 
     public function pqr()
     {
-        return $this->hasOne(pqr::class,'fk_pqr_id');
+        return $this->belongsTo(pqr::class,'fk_pqr_id');
     }
 
 }

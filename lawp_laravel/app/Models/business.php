@@ -25,11 +25,11 @@ class business extends Model
 
     public function economicSectors()
     {
-        return $this->hasOne(economic_sector::class,'fk_economic_sector_id');
+        return $this->belongsTo(economic_sector::class,'fk_economic_sector_id');
     }
     public function municipality()
     {
-        return $this->hasOne(municipality::class,'fk_municipality_id');
+        return $this->belongsTo(municipality::class,'fk_municipality_id');
     }
     public function pqr()
     {
