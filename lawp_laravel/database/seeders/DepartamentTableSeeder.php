@@ -13,6 +13,6 @@ class DepartamentTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }
