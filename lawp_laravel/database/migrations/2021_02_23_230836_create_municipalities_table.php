@@ -21,7 +21,7 @@ class CreateMunicipalitiesTable extends Migration
                 ->constrained()
                 ->references('id')
                 ->on('departament');
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 

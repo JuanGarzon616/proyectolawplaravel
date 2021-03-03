@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class departament extends Model
 {
     use HasFactory;
-    protected $table = 'name';
+    protected $table = 'departament';
     protected $primaryKey = 'id';
-    protected $fillable = 'name';
+    protected $fillable = [
+        'name'
+    ];
+    public $timestamps = false;
+
 
     public function municipalities()
     {

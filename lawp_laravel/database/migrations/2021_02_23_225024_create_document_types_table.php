@@ -17,7 +17,7 @@ class CreateDocumentTypesTable extends Migration
             $table->id();
             $table->string('name',50);
             $table->string('acronym',10);
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 

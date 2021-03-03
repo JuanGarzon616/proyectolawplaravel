@@ -10,7 +10,9 @@ class economic_sector extends Model
     use HasFactory;
     protected $table = 'economic_sectors';
     protected $primaryKey = 'id';
-    protected $fillable = 'name';
+    protected $fillable = ['name'];
+    public $timestamps = false;
+
 
     public function businesses()
     {

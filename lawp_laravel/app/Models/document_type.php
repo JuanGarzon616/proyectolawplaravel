@@ -14,6 +14,7 @@ class document_type extends Model
         'name',
         'acronym'
     ];
+    public $timestamps = false;
 
     public function users()
     {

@@ -4,16 +4,18 @@
     <list default="true" id="246fec36-20e1-4250-9eb2-858928e4e5e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AttachmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AttachmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BusinessController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BusinessController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DepartamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartamentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentTypeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EconomicSectorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EconomicSectorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MunicipalityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MunicipalityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PqrController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PqrController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RolController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RolController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/attachment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/attachment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/business.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/business.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/departament.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/departament.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/document_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/document_type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/economic_sector.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/economic_sector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/municipality.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/municipality.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/rol.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/rol.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_23_225024_create_document_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_23_225024_create_document_types_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_23_230307_create_departaments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_23_230307_create_departaments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_23_230403_create_rols_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_23_230403_create_rols_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_23_230518_create_economic_sectors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_23_230518_create_economic_sectors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_23_230836_create_municipalities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_23_230836_create_municipalities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DepartamentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DepartamentTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +156,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -171,7 +174,10 @@
       <option name="presentableId" value="Default" />
       <updated>1614351898852</updated>
       <workItem from="1614351917803" duration="10390000" />
-      <workItem from="1614617069769" duration="3655000" />
+      <workItem from="1614617069769" duration="14440000" />
+      <workItem from="1614701440197" duration="259000" />
+      <workItem from="1614701746764" duration="3790000" />
+      <workItem from="1614727494480" duration="1473000" />
     </task>
     <servers />
   </component>
@@ -188,5 +194,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

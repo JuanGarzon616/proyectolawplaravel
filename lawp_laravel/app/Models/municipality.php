@@ -14,6 +14,8 @@ class municipality extends Model
       'name',
       'fk_departaments_id'
     ];
+    public $timestamps = false;
+
 
     public function departaments()
     {
