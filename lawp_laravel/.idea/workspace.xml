@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="246fec36-20e1-4250-9eb2-858928e4e5e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+>>>>>>> 04c0b38af2e8adfd655d05b3b274d182ae4ffd1d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,8 +171,18 @@
       <workItem from="1614617069769" duration="14440000" />
       <workItem from="1614701440197" duration="259000" />
       <workItem from="1614701746764" duration="3790000" />
+<<<<<<< Updated upstream
       <workItem from="1614727494480" duration="2314000" />
       <workItem from="1614789162829" duration="52000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1614727494480" duration="1473000" />
+      <workItem from="1615668713423" duration="48000" />
+=======
+      <workItem from="1614727494480" duration="2314000" />
+      <workItem from="1614789162829" duration="52000" />
+>>>>>>> 04c0b38af2e8adfd655d05b3b274d182ae4ffd1d
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
