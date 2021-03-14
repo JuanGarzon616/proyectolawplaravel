@@ -7,11 +7,7 @@ use App\Models\departament;
 
 class DepartamentTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         //no ejecutar este seeder 2 veces o la base de datos explota
@@ -48,8 +44,9 @@ class DepartamentTableSeeder extends Seeder
                 ['name'=>'Valle del Cauca'],
                 ['name'=>'Vaupés'],
                 ['name'=>'Vichada'],
-                ['name'=>'Bogotá']],
-                ['name','created_at','updated_at']
+                ['name'=>'Bogotá']
+            ],
+                ['name']
             );
 
     }
