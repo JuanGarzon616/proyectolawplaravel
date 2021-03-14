@@ -1482,54 +1482,34 @@ class MunicipalityTableSeeder extends Seeder
 ','fk_departaments_id'=>'22'],
             ['name'=>'VILLA DEL ROSARIO
 ','fk_departaments_id'=>'22'],
+            ['name'=>'MOCOA
+','fk_departaments_id'=>'23'],
+            ['name'=>'COLON
+','fk_departaments_id'=>'23'],
+            ['name'=>'ORITO
+','fk_departaments_id'=>'23'],
+            ['name'=>'PUERTO ASIS
+','fk_departaments_id'=>'23'],
+            ['name'=>'PUERTO CAICEDO
+','fk_departaments_id'=>'23'],
+            ['name'=>'PUERTO GUZMAN
+','fk_departaments_id'=>'23'],
+            ['name'=>'LEGUIZAMO
+','fk_departaments_id'=>'23'],
+            ['name'=>'SIBUNDOY
+','fk_departaments_id'=>'23'],
+            ['name'=>'SAN FRANCISCO
+','fk_departaments_id'=>'23'],
+            ['name'=>'SAN MIGUEL
+','fk_departaments_id'=>'23'],
+            ['name'=>'SANTIAGO
+','fk_departaments_id'=>'23'],
+            ['name'=>'VALLE DEL GUAMUEZ
+','fk_departaments_id'=>'23'],
+            ['name'=>'VILLAGARZON
+','fk_departaments_id'=>'23'],
             ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
-            ['name'=>'','fk_departaments_id'=>'24'],
+
 
 
 

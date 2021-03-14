@@ -44,7 +44,7 @@ class DepartamentTableSeeder extends Seeder
                 ['name'=>'Valle del Cauca'],
                 ['name'=>'Vaupés'],
                 ['name'=>'Vichada'],
-                ['name'=>'Bogotá']
+                ['name'=>'Bogotá'],
             ],
                 ['name']
             );
