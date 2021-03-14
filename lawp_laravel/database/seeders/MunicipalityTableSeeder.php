@@ -553,7 +553,135 @@ class MunicipalityTableSeeder extends Seeder
 ','fk_departaments_id'=>'8'],
             ['name'=>'VALPARAISO
 ','fk_departaments_id'=>'8'],
-            ['name'=>'','fk_departaments_id'=>'9'],
+            ['name'=>'YOPAL
+','fk_departaments_id'=>'9'],
+            ['name'=>'AGUAZUL
+','fk_departaments_id'=>'9'],
+            ['name'=>'CHAMEZA
+','fk_departaments_id'=>'9'],
+            ['name'=>'HATO COROZAL
+','fk_departaments_id'=>'9'],
+            ['name'=>'LA SALINA
+','fk_departaments_id'=>'9'],
+            ['name'=>'MANI
+','fk_departaments_id'=>'9'],
+            ['name'=>'MONTERREY
+','fk_departaments_id'=>'9'],
+            ['name'=>'NUNCHIA
+','fk_departaments_id'=>'9'],
+            ['name'=>'OROCUE
+','fk_departaments_id'=>'9'],
+            ['name'=>'PAZ DE ARIPORO
+','fk_departaments_id'=>'9'],
+            ['name'=>'PORE
+','fk_departaments_id'=>'9'],
+            ['name'=>'RECETOR
+','fk_departaments_id'=>'9'],
+            ['name'=>'SABANALARGA
+','fk_departaments_id'=>'9'],
+            ['name'=>'SACAMA
+','fk_departaments_id'=>'9'],
+            ['name'=>'SAN LUIS DE PALENQUE
+','fk_departaments_id'=>'9'],
+            ['name'=>'TAMARA
+','fk_departaments_id'=>'9'],
+            ['name'=>'TAURAMENA
+','fk_departaments_id'=>'9'],
+            ['name'=>'TRINIDAD
+','fk_departaments_id'=>'9'],
+            ['name'=>'VILLANUEVA
+','fk_departaments_id'=>'9'],
+            ['name'=>'Almaguer','fk_departaments_id'=>'10'],
+            ['name'=>'Argelia','fk_departaments_id'=>'10'],
+            ['name'=>'Balboa','fk_departaments_id'=>'10'],
+            ['name'=>'Bolívar','fk_departaments_id'=>'10'],
+            ['name'=>'Buenos Aires','fk_departaments_id'=>'10'],
+            ['name'=>'Cajibío','fk_departaments_id'=>'10'],
+            ['name'=>'Caldono','fk_departaments_id'=>'10'],
+            ['name'=>'Caloto','fk_departaments_id'=>'10'],
+            ['name'=>'Corinto','fk_departaments_id'=>'10'],
+            ['name'=>'Florencia','fk_departaments_id'=>'10'],
+            ['name'=>'Guapi','fk_departaments_id'=>'10'],
+            ['name'=>'Inzá','fk_departaments_id'=>'10'],
+            ['name'=>'Jambaló','fk_departaments_id'=>'10'],
+            ['name'=>'La Sierra','fk_departaments_id'=>'10'],
+            ['name'=>'La Vega','fk_departaments_id'=>'10'],
+            ['name'=>'López de Micay','fk_departaments_id'=>'10'],
+            ['name'=>'Mercaderes','fk_departaments_id'=>'10'],
+            ['name'=>'Miranda','fk_departaments_id'=>'10'],
+            ['name'=>'Morales','fk_departaments_id'=>'10'],
+            ['name'=>'Villa Rica','fk_departaments_id'=>'10'],
+            ['name'=>'Padilla','fk_departaments_id'=>'10'],
+            ['name'=>'Páez','fk_departaments_id'=>'10'],
+            ['name'=>'Piamonte','fk_departaments_id'=>'10'],
+            ['name'=>'Piendamó','fk_departaments_id'=>'10'],
+            ['name'=>'Puerto Tejada','fk_departaments_id'=>'10'],
+            ['name'=>'Puracé-Coconuco','fk_departaments_id'=>'10'],
+            ['name'=>'Rosas','fk_departaments_id'=>'10'],
+            ['name'=>'San Sebastián','fk_departaments_id'=>'10'],
+            ['name'=>'Santa Rosa','fk_departaments_id'=>'10'],
+            ['name'=>'Santander de Quilichao','fk_departaments_id'=>'10'],
+            ['name'=>'Silvia','fk_departaments_id'=>'10'],
+            ['name'=>'Suárez','fk_departaments_id'=>'10'],
+            ['name'=>'Sucre','fk_departaments_id'=>'10'],
+            ['name'=>'Timbío','fk_departaments_id'=>'10'],
+            ['name'=>'Timbiquí','fk_departaments_id'=>'10'],
+            ['name'=>'Toribío','fk_departaments_id'=>'10'],
+            ['name'=>'Totoró','fk_departaments_id'=>'10'],
+            ['name'=>'VALLEDUPAR
+','fk_departaments_id'=>'11'],
+            ['name'=>'AGUACHICA
+','fk_departaments_id'=>'11'],
+            ['name'=>'AGUSTIN CODAZZI
+','fk_departaments_id'=>'11'],
+            ['name'=>'ASTREA
+','fk_departaments_id'=>'11'],
+            ['name'=>'BECERRIL
+','fk_departaments_id'=>'11'],
+            ['name'=>'BOSCONIA
+','fk_departaments_id'=>'11'],
+            ['name'=>'CHIMICHAGUA
+','fk_departaments_id'=>'11'],
+            ['name'=>'CHIRIGUANA
+','fk_departaments_id'=>'11'],
+            ['name'=>'CURUMANI
+','fk_departaments_id'=>'11'],
+            ['name'=>'EL COPEY
+','fk_departaments_id'=>'11'],
+            ['name'=>'EL PASO
+','fk_departaments_id'=>'11'],
+            ['name'=>'GAMARRA
+','fk_departaments_id'=>'11'],
+            ['name'=>'GONZALEZ
+','fk_departaments_id'=>'11'],
+            ['name'=>'LA GLORIA
+','fk_departaments_id'=>'11'],
+            ['name'=>'LA JAGUA DE IBIRICO
+','fk_departaments_id'=>'11'],
+            ['name'=>'MANAURE
+','fk_departaments_id'=>'11'],
+            ['name'=>'PAILITAS
+','fk_departaments_id'=>'11'],
+            ['name'=>'PELAYA
+','fk_departaments_id'=>'11'],
+            ['name'=>'PUEBLO BELLO
+','fk_departaments_id'=>'11'],
+            ['name'=>'RIO DE ORO
+','fk_departaments_id'=>'11'],
+            ['name'=>'LA PAZ
+','fk_departaments_id'=>'11'],
+            ['name'=>'SAN ALBERTO
+','fk_departaments_id'=>'11'],
+            ['name'=>'SAN DIEGO
+','fk_departaments_id'=>'11'],
+            ['name'=>'SAN MARTIN
+','fk_departaments_id'=>'11'],
+            ['name'=>'TAMALAMEQUE
+','fk_departaments_id'=>'11'],
+            ['name'=>'','fk_departaments_id'=>'12'],
+
+
+
 
 
 
