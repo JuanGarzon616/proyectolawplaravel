@@ -18,7 +18,6 @@ class CreatePqrsTable extends Migration
             $table->string('affair',50);
             $table->text('description');
             $table->date('date');
-
             $table->foreignId('fk_user_id')
                 ->constrained()
                 ->references('id')->on('users')
@@ -30,6 +29,10 @@ class CreatePqrsTable extends Migration
                 ->on('businesses')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->foreignId('fk_status_id')
+                ->constrained()
+                ->references('id')
+                ->on('status');
             $table->timestamps();
         });
     }

@@ -21,9 +21,8 @@ class CreateBusinessesTable extends Migration
             $table->string('bussiness_name',100);
             $table->string('name',30);
             $table->string('password',50);
-            $table->string('mail',100);/*
-            $table->bigInteger('fk_economic_sector_id')->unsigned();
-            $table->bigInteger('fk_municipality_id')->unsigned();*/
+            $table->string('mail',100);
+            $table->dateTime('member_remaining');
             $table->foreignId('fk_economic_sector_id')
                 ->constrained()
                 ->references('id')
@@ -32,6 +31,10 @@ class CreateBusinessesTable extends Migration
                 ->constrained()
                 ->references('id')
                 ->on('municipalities');
+            $table->foreignId('fk_membership_id')
+                ->constrained()
+                ->references('id')
+                ->on('memberships');
             $table->timestamps();
         });
     }

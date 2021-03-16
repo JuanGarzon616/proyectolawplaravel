@@ -20,6 +20,14 @@ class CreateBillsTable extends Migration
                 ->references('id')
                 ->on('businesses')
                 ->onDelete('cascade');
+            $table->foreignId('fk_membership_id')
+                ->constrained()
+                ->references('id')
+                ->on('memberships');
+            $table->foreignId('fk_payment_id')
+                ->constrained()
+                ->references('id')
+                ->on('payments');
             $table->timestamps();
         });
     }

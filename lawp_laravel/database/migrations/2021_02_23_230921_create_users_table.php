@@ -23,14 +23,12 @@ class CreateUsersTable extends Migration
             $table->integer('tellephone2')->nullable();
             $table->string('mail',50);
             $table->string('password',30);
-            /*$table->bigInteger('fk_document_type_id')->unsigned();
-            $table->bigInteger('fk_rol_id')->unsigned();
-            $table->bigInteger('fk_municipality_id')->unsigned();*/
             $table->foreignId('fk_document_type_id')
                 ->constrained()
                 ->references('id')
                 ->on('document_types');
             $table->foreignId('fk_rol_id')
+                ->default(1)
                 ->constrained()
                 ->references('id')
                 ->on('rols');
