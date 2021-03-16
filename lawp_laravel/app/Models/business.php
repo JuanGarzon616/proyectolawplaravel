@@ -18,7 +18,8 @@ class business extends Model
         'password',
         'mail',
         'fk_economic_sector_id',
-        'fk_municipality_id'
+        'fk_municipality_id',
+        'fk_membership_id'
     ];
     protected $hidden = 'password';
 
@@ -33,6 +34,9 @@ class business extends Model
     public function pqr()
     {
         return $this->hasMany(pqr::class);
-
+    }
+    public function membership()
+    {
+        return $this->belongsTo(membership::class,'fk_membership_id');
     }
 }
