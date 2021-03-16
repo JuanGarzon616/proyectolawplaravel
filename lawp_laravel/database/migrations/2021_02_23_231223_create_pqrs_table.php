@@ -18,8 +18,7 @@ class CreatePqrsTable extends Migration
             $table->string('affair',50);
             $table->text('description');
             $table->date('date');
-            /*$table->bigInteger('fk_user_id')->unsigned();
-            $table->bigInteger('fk_bussiness_id')->unsigned();*/
+
             $table->foreignId('fk_user_id')
                 ->constrained()
                 ->references('id')->on('users')

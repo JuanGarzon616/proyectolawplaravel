@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDocumentTypesTable extends Migration
+class CreateBillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateDocumentTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('document_types', function (Blueprint $table) {
+        Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->string('name',50);
-            $table->string('acronym',10);
-
+            $table->foreignId('fk_business_id')
+                ->constrained()
+                ->references('id')
+                ->on('businesses')
+                ->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +31,6 @@ class CreateDocumentTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('document_types');
+        Schema::dropIfExists('bills');
     }
 }
