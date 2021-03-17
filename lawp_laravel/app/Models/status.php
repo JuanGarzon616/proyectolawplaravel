@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class status extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'name'
-    ];
-    public $timestamp = false;
+    protected $table = 'status';
+    protected $fillable = ['name'];
+    public $timestamps = false;
 
     public function pqr(){
         return $this->hasMany(pqr::class);

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\payment;
 use Illuminate\Database\Seeder;
 
 class PaymentsTableSeeder extends Seeder
@@ -13,6 +14,11 @@ class PaymentsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        payment::upsert([
+            ['name'=>'Debito'],
+            ['name'=>'Credito'],
+        ],
+        ['name']
+        );
     }
 }
