@@ -17,7 +17,7 @@ class CreateMembershipsTable extends Migration
             $table->id();
             $table->string('name','50');
             $table->integer('duration');
-            $table->decimal('cost');
+            $table->integer('cost');
         });
     }
 
