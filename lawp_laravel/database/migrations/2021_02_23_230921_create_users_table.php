@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('direcction',50);
             $table->integer('tellephone1');
             $table->integer('tellephone2')->nullable();
-            $table->string('mail',50);
+            $table->string('mail',50)->unique();
             $table->string('password',30);
             $table->string('token');
             $table->foreignId('fk_document_type_id')

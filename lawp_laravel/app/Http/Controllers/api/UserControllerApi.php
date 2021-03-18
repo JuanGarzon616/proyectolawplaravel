@@ -26,18 +26,27 @@ class UserControllerApi extends Controller
             $users = user::create($request->except('fk_rol_id'));
             $mensaje = ['mensaje'=>'succesful'];
         } catch(\Illuminate\Database\QueryException $ex){
-            $find = $this->show($request->document);
+            $email = $this->ifEmail($request->mail);
+            $document = $this->show($request->document);
+            //dd($email['email']);
+            //dd($document['user']);
 
-            //dd($find['user']);
-
-            if($find['user'] !== null ){
-                $mensaje = ['mensage'=>'Documento ya usado.'];
+            if($document['user'] !== null ){
+                $mensaje = ['mensage'=>'Documento ya usado.'.$ex];
+            }elseif($email['email'] !== null){
+                $mensaje = ['mensage'=>'Correo ya utilizado'.$ex];
             }else{
-                $mensaje = ['mensage'=>'Solo se permiten numeros'];
+                $mensaje = ['mensage'=>'Correo o email mal'.$ex];
             }
         }
 
         return $mensaje;
+    }
+    public function ifEmail($mail){
+        $email = user::('mail','like',$mail)->get();
+        $emailerification = ['email'=>$email];
+
+        return $emailerification;
     }
 
     public function show($id)
