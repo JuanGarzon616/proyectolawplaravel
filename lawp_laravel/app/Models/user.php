@@ -21,11 +21,12 @@ class user extends Model
         'telephone2',
         'mail',
         'password',
+        'token',
         'fk_document_type_id',
         'fk_rol_id',
         'fk_municipality_id'
     ];
-    protected $hidden = 'password';
+    protected $hidden = ['password','token'];
 
     public function documenType()
     {

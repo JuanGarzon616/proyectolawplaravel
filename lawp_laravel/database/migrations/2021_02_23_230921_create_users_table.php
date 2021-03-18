@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('tellephone2')->nullable();
             $table->string('mail',50);
             $table->string('password',30);
+            $table->string('token');
             $table->foreignId('fk_document_type_id')
                 ->constrained()
                 ->references('id')

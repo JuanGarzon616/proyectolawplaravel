@@ -19,11 +19,12 @@ class business extends Model
         'name',
         'password',
         'mail',
+        'token',
         'fk_economic_sector_id',
         'fk_municipality_id',
         'fk_membership_id'
     ];
-    protected $hidden = 'password';
+    protected $hidden = ['password','token'];
 
     public function economicSectors()
     {

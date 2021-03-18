@@ -23,6 +23,7 @@ class CreateBusinessesTable extends Migration
             $table->string('password',50);
             $table->string('mail',100);
             $table->dateTime('member_remaining');
+            $table->string('token');
             $table->foreignId('fk_economic_sector_id')
                 ->constrained()
                 ->references('id')
