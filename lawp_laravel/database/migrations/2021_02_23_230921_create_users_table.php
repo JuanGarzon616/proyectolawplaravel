@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('names',50);
             $table->string('last_names',50);
             $table->string('direcction',50);
-            $table->integer('telephone1');
+            $table->integer('tellephone1');
             $table->integer('tellephone2')->nullable();
             $table->string('mail',50);
             $table->string('password',30);

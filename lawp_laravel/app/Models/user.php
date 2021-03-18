@@ -15,7 +15,7 @@ class user extends Model
         'names',
         'last_names',
         'direcction',
-        'telephone1',
+        'tellephone1',
         'telephone2',
         'mail',
         'password',
