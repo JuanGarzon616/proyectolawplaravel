@@ -28,24 +28,21 @@ class UserControllerApi extends Controller
         } catch(\Illuminate\Database\QueryException $ex){
             $email = $this->ifEmail($request->mail);
             $document = $this->show($request->document);
-            //dd($email['email']);
-            //dd($document['user']);
 
-            if($document['user'] !== null ){
+            if(!empty($email['email'])){
+                $mensaje = ['mensage'=>'Correo ya utilizado'];
+            }elseif($document !== null ){
                 $mensaje = ['mensage'=>'Documento ya usado.'.$ex];
-            }elseif($email['email'] !== null){
-                $mensaje = ['mensage'=>'Correo ya utilizado'.$ex];
             }else{
-                $mensaje = ['mensage'=>'Correo o email mal'.$ex];
+                $mensaje = ['mensage'=>'Algun campo contiene un caracter no deseado revisa.'];
             }
         }
 
         return $mensaje;
     }
     public function ifEmail($mail){
-        $email = user::('mail','like',$mail)->get();
-        $emailerification = ['email'=>$email];
-
+        $email = user::where('mail','like',$mail)->get();
+        $emailerification = ['email'=>$email->toArray()];
         return $emailerification;
     }
 
@@ -53,13 +50,7 @@ class UserControllerApi extends Controller
     {
         //$users = user::where('names','like','%'.$id.'%')->get();
         $users = user::find($id);
-        $data = ['user'=>$users];/*
-        try {
-            $users = user::find($id);
-            $data = ['user'=>$users];
-        }catch(\Illuminate\Database\QueryException $e){
-            $data = ['user'=>$e];
-        }*/
+        $data = ['user'=>$users];
         return $data;
     }
 
