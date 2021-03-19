@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserControllerApi extends Controller
 {
@@ -15,24 +16,23 @@ class UserControllerApi extends Controller
         return $users->toArray();
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
         try {
-            $users = user::create($request->except('fk_rol_id'));
+            /*$request->user()->fill([
+                'password' => Hash::make($request->newPassword)
+            ])->save();*/
+            user::create($request->except('fk_rol_id'));
+
             $mensaje = ['mensaje'=>'succesful'];
         } catch(\Illuminate\Database\QueryException $ex){
             $email = $this->ifEmail($request->mail);
             $document = $this->show($request->document);
 
-            if(!empty($email['email'])){
+            if(!empty($document['user'])){
+                $mensaje = ['mensage'=>'Documento ya utilizado'];
+            }elseif(!empty($email['email'])){
                 $mensaje = ['mensage'=>'Correo ya utilizado'];
-            }elseif($document !== null ){
-                $mensaje = ['mensage'=>'Documento ya usado.'.$ex];
             }else{
                 $mensaje = ['mensage'=>'Algun campo contiene un caracter no deseado revisa.'];
             }
@@ -42,21 +42,15 @@ class UserControllerApi extends Controller
     }
     public function ifEmail($mail){
         $email = user::where('mail','like',$mail)->get();
-        $emailerification = ['email'=>$email->toArray()];
-        return $emailerification;
+        return ['email'=>$email->toArray()];
     }
 
     public function show($id)
     {
         //$users = user::where('names','like','%'.$id.'%')->get();
-        $users = user::find($id);
-        $data = ['user'=>$users];
-        return $data;
-    }
-
-    public function edit($id)
-    {
-        //
+        $users = user::where('document','like',$id)->get();
+        //dd($users);
+        return ['user'=>$users->toArray()];
     }
 
     public function update(Request $request, $id)
