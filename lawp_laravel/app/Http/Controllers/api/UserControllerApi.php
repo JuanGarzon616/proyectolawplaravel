@@ -19,25 +19,41 @@ class UserControllerApi extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'document'=>'required|unique:users,document|max:15',
+            'document'=>'required|unique:users,document|integer|max:99999999999999999',
             'names'=>'required|max:50',
             'last_names'=>'required|max:50',
             'direcction'=>'required|max:50',
-            'tellephone1'=>'required|integer',
-            'tellephone2'=>'integer|nullable',
-            'mail'=>'required|unique:users,mail|max:50',
-            'password'=>'required|min:10',
+            'tellephone1'=>'required|integer|max:99999999999999999',
+            'tellephone2'=>'integer|nullable|max:99999999999999999',
+            'mail'=>'required|unique:users,mail|max:50|regex:/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',
+            'password'=>'required|min:10|max:30|same:password2',
+            //'password2'=>'required|min:10|max:30',
             'token'=>'nullable|max:225',
-            'fk_document_type_id'=>'required|integer|max:10',
+            'fk_document_type_id'=>'required|integer|max:5',
             //'fk_rol_id'=>'integer|max:10',
             'fk_municipality_id'=>'required|integer',
-            'created_at'=>'nullable|date_format:Y-m-d\TH:i:sP',
-            'updated_at'=>'nullable|date_format:Y-m-d\TH:i:sP'
+            'created_at'=>'nullable|date|after:start_date',
+            'updated_at'=>'nullable|date|after:start_date'
         ]);
 
         //dd($prueba);
 
-        return user::create($request->except('fk_rol_id'));
+        //return user::create($request->except('fk_rol_id'));
+        return user::create([
+            'document'=>$request->document,
+            'names'=>$request->names,
+            'last_names'=>$request->last_names,
+            'direcction'=>$request->direcction,
+            'tellephone1'=>$request->tellephone1,
+            'tellephone2'=>$request->tellephone2,
+            'mail'=>$request->mail,
+            'password'=>Hash::make($request->password),
+            'token'=>$request->token,
+            'fk_document_type_id'=>$request->fk_document_type_id,
+            'fk_municipality_id'=>$request->fk_municipality_id,
+            'created_at'=>$request->created_at,
+            'updated_at'=>$request->updated_at
+        ]);
 
         /*$request->user()->fill([
                 'password' => Hash::make($request->newPassword)

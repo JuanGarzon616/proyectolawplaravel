@@ -15,12 +15,12 @@ class CreateBusinessesTable extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->id();
-            $table->integer('nit')->unique();
-            $table->integer('tellephone1');
-            $table->integer('tellephone2');
+            $table->bigInteger('nit')->unique();
+            $table->bigInteger('tellephone1');
+            $table->bigInteger('tellephone2');
             $table->string('bussiness_name',100);
             $table->string('name',30);
-            $table->string('password',50);
+            $table->string('password');
             $table->string('mail',100);
             $table->dateTime('member_remaining');
             $table->string('token');
