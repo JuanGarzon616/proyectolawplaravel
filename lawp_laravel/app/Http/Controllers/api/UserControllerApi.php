@@ -18,14 +18,27 @@ class UserControllerApi extends Controller
 
     public function store(Request $request)
     {
-        try {
-            /*$request->user()->fill([
+        $request->validate([
+            'document'=>'required|unique:users,document|max:15',
+            'names'=>'required|max:50',
+            'last_names'=>'required|max:50',
+            'direcction'=>'required|max:50',
+            'tellephone1'=>'required|integer',
+            ''=>''
+        ]);
+
+        return user::create($request->except('fk_rol_id'));
+
+        /*$request->user()->fill([
                 'password' => Hash::make($request->newPassword)
             ])->save();*/
-            user::create($request->except('fk_rol_id'));
+        /*try {
+
+
 
             $mensaje = ['mensaje'=>'succesful'];
         } catch(\Illuminate\Database\QueryException $ex){
+            //$mensaje = ['response' =>'error'.$ex];
             $email = $this->ifEmail($request->mail);
             $document = $this->show($request->document);
 
@@ -36,9 +49,9 @@ class UserControllerApi extends Controller
             }else{
                 $mensaje = ['mensage'=>'Algun campo contiene un caracter no deseado revisa.'];
             }
-        }
+        }*/
 
-        return $mensaje;
+        //return $mensaje;
     }
     public function ifEmail($mail){
         $email = user::where('mail','like',$mail)->get();
