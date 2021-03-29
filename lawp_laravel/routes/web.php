@@ -8,4 +8,4 @@ Route::get('/', function () {
     return view('welcome');
 });*/
 
-Route::resource('attachments',\App\Http\Controllers\AttachmentController::class);
+//Route::resource('attachments',\App\Http\Controllers\AttachmentController::class);
