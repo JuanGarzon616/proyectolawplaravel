@@ -12,12 +12,13 @@ class DepartamentControllerApi extends Controller
 
     public function index()
     {
-        return departament::class->municipalities()->get();
+        return departament::get();
     }
-/*
+
     public function show($id)
     {
-        //
+
+        return municipality::where('fk_departaments_id', $id)->get();
     }
-*/
+
 }
