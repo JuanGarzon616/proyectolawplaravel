@@ -9,6 +9,6 @@ use Illuminate\Http\Request;
 class MunicipalityControllerApi extends Controller
 {
     public function index($id){
-        return municipality::where('fk_departaments_id');
+        return municipality::select('id','name')->where('fk_departaments_id')->get();
     }
 }

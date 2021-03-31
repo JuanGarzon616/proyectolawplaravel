@@ -18,7 +18,7 @@ class DepartamentControllerApi extends Controller
     public function show($id)
     {
 
-        return municipality::where('fk_departaments_id', $id)->get();
+        return municipality::select('id','name')->where('fk_departaments_id', $id)->get();
     }
 
 }
