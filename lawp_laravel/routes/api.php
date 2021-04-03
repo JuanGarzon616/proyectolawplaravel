@@ -23,3 +23,7 @@ Route::apiResource('user',\App\Http\Controllers\api\UserControllerApi::class);
 Route::get('departament',[\App\Http\Controllers\api\DepartamentControllerApi::class,'index'])->name('departament.index');
 Route::get('departament/{id}',[\App\Http\Controllers\api\DepartamentControllerApi::class,'show'])->name('departament.show');
 Route::get('municipality/{id}',[\App\Http\Controllers\api\MunicipalityControllerApi::class,'index']);
+
+/*Route::get('user/{document}',[\App\Http\Controllers\api\UserControllerApi::class,'ifDoc']);*/
+Route::get('user/email/{email}',[\App\Http\Controllers\api\UserControllerApi::class,'ifEmail']);
+

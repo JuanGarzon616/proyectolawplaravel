@@ -87,8 +87,13 @@ class UserControllerApi extends Controller
     public function show($id)
     {
         //$users = user::where('names','like','%'.$id.'%')->get();
-        $users = user::where('document','like',$id)->get();
-        return ['user'=>$users->toArray()];
+        return user::select('document')->where('document',$id)->get();
+        /*dd($users);
+        if(!empty($users)){
+            return 'hola';
+        }else{
+            return 'no hola';
+        }*/
     }
 
     public function update(Request $request, $id)
@@ -101,4 +106,10 @@ class UserControllerApi extends Controller
     {
         //
     }
+    public function ifEmail($mail){
+        return user::select('mail')->where('mail',$mail)->get();
+    }
+    /*public function ifDoc($doc){
+        return user::where('document',$doc)->get();
+    }*/
 }
