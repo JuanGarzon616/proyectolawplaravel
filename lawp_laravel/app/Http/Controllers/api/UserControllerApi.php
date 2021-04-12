@@ -36,7 +36,7 @@ class UserControllerApi extends Controller
             'updated_at'=>'nullable|date|after:start_date'
         ]);
 
-        //dd($prueba);
+        //dd($prueba);  'vehicle'=> 'required|exists:vehicles,name'
 
         //return user::create($request->except('fk_rol_id'));
         return user::create([
