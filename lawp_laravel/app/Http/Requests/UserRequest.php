@@ -2,16 +2,17 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class UserRequest extends FormRequest
 {
 
     public function authorize()
     {
-        return false;
+        return true;
     }
-
 
     public function rules()
     {
@@ -26,24 +27,27 @@ class UserRequest extends FormRequest
                 'password'=>'required|min:10|max:30|same:password2',
                 //'password2'=>'required|min:10|max:30',
                 'token'=>'nullable|max:225',
-                'fk_document_type_id'=>'required|integer|max:5',
+                'fk_document_type_id'=>'required|integer|max:5|exists:document_types,id',
                 //'fk_rol_id'=>'integer|max:10',
-                'fk_municipality_id'=>'required|integer',
+                'fk_municipality_id'=>'required|integer|exists:municipalities,id',
                 'created_at'=>'nullable|date|after:start_date',
                 'updated_at'=>'nullable|date|after:start_date'
         ];
     }
 
-  public function messages()
-    {
-        return [
-            'name.required' => 'El campo :attribute es obligatorio.',
-            'email.required' => 'El campo :attribute es obligatorio.',
-            'email.email' => 'El campo :attribute debe sr un correo electronico.',
-            'identification.required' => 'El campo :attribute es obligatorio.',
-            'identification.integer' => 'El campo :attribute debe ser un numero.',
-            'cellphone.required' => 'El campo :attribute es o'
- protected function failedValidation(Validator $validator)
+  /*public function messages()
+  {
+      return [
+          'name.required' => 'El campo :attribute es obligatorio.',
+          'email.required' => 'El campo :attribute es obligatorio.',
+          'email.email' => 'El campo :attribute debe sr un correo electronico.',
+          'identification.required' => 'El campo :attribute es obligatorio.',
+          'identification.integer' => 'El campo :attribute debe ser un numero.',
+          'cellphone.required' => 'El campo :attribute es o'
+      ];
+  }*/
+
+  protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(
             response()->json([

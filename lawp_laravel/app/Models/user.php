@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+//use Illuminate\Database\Eloquent\Model;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class user extends Model
+class user extends Authenticatable implements JWTSubject
 {
     use HasFactory;
     protected $table = 'users';
@@ -37,5 +38,15 @@ class user extends Model
     public function municipality()
     {
         return $this->belongsTo(municipality::class,'fk_municipality_id');
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }
