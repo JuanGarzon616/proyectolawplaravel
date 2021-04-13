@@ -13,17 +13,20 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+/*
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});*/
+Route::post('/login','\App\Http\Controllers\api\UserControllerApi@authenticate');
+/*Route::post('/register','\App\Http\Controllers\api\UserControllerApi@register');*/
+Route::group(['middleware'=>['jwt.verify']],function(){
+    Route::post('user','\App\Http\Controllers\api\UserControllerApi@authenticate');
 });
-
 Route::apiResource('user',\App\Http\Controllers\api\UserControllerApi::class);
+
 
 Route::get('departament',[\App\Http\Controllers\api\DepartamentControllerApi::class,'index'])->name('departament.index');
 Route::get('departament/{id}',[\App\Http\Controllers\api\DepartamentControllerApi::class,'show'])->name('departament.show');
 Route::get('municipality/{id}',[\App\Http\Controllers\api\MunicipalityControllerApi::class,'index']);
 
-/*Route::get('user/{document}',[\App\Http\Controllers\api\UserControllerApi::class,'ifDoc']);*/
-Route::get('user/email/{email}',[\App\Http\Controllers\api\UserControllerApi::class,'ifEmail']);
 

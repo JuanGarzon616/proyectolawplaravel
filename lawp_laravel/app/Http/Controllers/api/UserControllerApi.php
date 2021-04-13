@@ -5,17 +5,48 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\user;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenExpiredException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserControllerApi extends Controller
 {
+    public function authenticate(Request $request){
+        $credenetial = $request->only('mail','password');
+        try{
+            if(! $token = JWTAuth::attempt($credenetial)){
+                return response()->json(['error'=>'Invalid Credentials'],400);
+            }
+        }catch(JWTException $e){
+            return response()->json(['error'=>'no se pudo crear token']);
+        }
+        return response()->json(compact('token'));
+    }
+
+    public function getAuthenticatedUser()
+    {
+        try {
+            if (!$user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['user_not_found'], 404);
+            }
+        } catch (TokenExpiredException $e) {
+            return response()->json(['token_expired'], $e->getStatusCode());
+        } catch (TokenInvalidException $e) {
+            return response()->json(['token_invalid'], $e->getStatusCode());
+        } catch (JWTException $e) {
+            return response()->json(['token_absent'], $e->getStatusCode());
+        }
+        return response()->json(compact('user'));
+    }
 
     public function index()
     {
-        $users = user::get();
-        return $users->toArray();
+        return user::get();
     }
 
     public function store(userRequest $request)
@@ -47,13 +78,9 @@ class UserControllerApi extends Controller
         //
     }
 
-
     public function destroy($id)
     {
         //
-    }
-    public function ifEmail($mail){
-        return user::select('mail')->where('mail',$mail)->get();
     }
 
 }
