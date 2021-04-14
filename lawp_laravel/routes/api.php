@@ -18,11 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
 Route::post('/login','\App\Http\Controllers\api\UserControllerApi@authenticate');
-/*Route::post('/register','\App\Http\Controllers\api\UserControllerApi@register');*/
+Route::post('/user/register','\App\Http\Controllers\api\UserControllerApi@register');
+
 Route::group(['middleware'=>['jwt.verify']],function(){
-    Route::post('user','\App\Http\Controllers\api\UserControllerApi@authenticate');
+    Route::post('user','\App\Http\Controllers\api\UserControllerApi@getAuthenticatedUser');
+
+    //Route::get('user/{id}',[\App\Http\Controllers\api\UserControllerApi::class,'show']);
 });
-Route::apiResource('user',\App\Http\Controllers\api\UserControllerApi::class);
+//Route::apiResource('user',\App\Http\Controllers\api\UserControllerApi::class);
 
 
 Route::get('departament',[\App\Http\Controllers\api\DepartamentControllerApi::class,'index'])->name('departament.index');

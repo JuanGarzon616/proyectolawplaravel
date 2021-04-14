@@ -5,10 +5,10 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\user;
-use http\Env\Response;
+//use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+//use Tymon\JWTAuth\Contracts\JWTSubject;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -44,14 +44,15 @@ class UserControllerApi extends Controller
         return response()->json(compact('user'));
     }
 
+
     public function index()
     {
         return user::get();
     }
 
-    public function store(userRequest $request)
+    public function register(userRequest $request)
     {
-        return user::create([
+        $user = user::create([
             'document'=>$request->document,
             'names'=>$request->names,
             'last_names'=>$request->last_names,
@@ -66,11 +67,15 @@ class UserControllerApi extends Controller
             'created_at'=>$request->created_at,
             'updated_at'=>$request->updated_at
         ]);
+
+        $token = JWTAuth::fromUser($user);
+
+        return response()->json(compact('user','token'),201);
     }
 
     public function show($id)
     {
-        return user::select('document')->where('document',$id)->get();
+        return user::where('id',$id)->get();
     }
 
     public function update(Request $request, $id)
