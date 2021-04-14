@@ -23,7 +23,7 @@ class CreateBusinessesTable extends Migration
             $table->string('name',30);
             $table->string('password');
             $table->string('mail',100);
-            $table->dateTime('member_remaining');
+            $table->dateTime('member_remaining')/*->default(carbon::now()->addMonth())*/;
             $table->string('token');
             $table->foreignId('fk_economic_sector_id')
                 ->constrained()
