@@ -62,6 +62,7 @@ class UserControllerApi extends Controller
             'mail'=>$request->mail,
             'password'=>Hash::make($request->password),
             'token'=>$request->token,
+            'image'=>$request->image,
             'fk_document_type_id'=>$request->fk_document_type_id,
             'fk_municipality_id'=>$request->fk_municipality_id,
             'created_at'=>$request->created_at,
