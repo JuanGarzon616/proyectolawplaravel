@@ -17,13 +17,13 @@ class CreateBusinessesTable extends Migration
             $table->id();
             $table->bigInteger('nit')->unique();
             $table->bigInteger('tellephone1');
-            $table->bigInteger('tellephone2');
+            $table->bigInteger('tellephone2')->nullable();
             $table->string('bussiness_name',100);
             $table->string('image')->nullable();
             $table->string('name',30);
             $table->string('password');
-            $table->string('mail',100);
-            $table->dateTime('member_remaining')/*->default(carbon::now()->addMonth())*/;
+            $table->string('mail',100)->unique();
+            $table->dateTime('member_remaining');
             $table->string('token');
             $table->foreignId('fk_economic_sector_id')
                 ->constrained()
@@ -34,6 +34,7 @@ class CreateBusinessesTable extends Migration
                 ->references('id')
                 ->on('municipalities');
             $table->foreignId('fk_membership_id')
+                ->default(4)
                 ->constrained()
                 ->references('id')
                 ->on('memberships');

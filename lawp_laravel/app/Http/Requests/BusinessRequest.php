@@ -29,11 +29,9 @@ class BusinessRequest extends FormRequest
             'mail'=>'required|unique:users,mail|max:50|regex:/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',
             'password'=>'required|min:10|max:30|same:password2',
             //'password2'=>'required|min:10|max:30',
-            'fk_document_type_id'=>'required|integer|max:5|exists:document_types,id',
-            //'fk_rol_id'=>'integer|max:10',
             'fk_municipality_id'=>'required|integer|exists:municipalities,id',
-            'fk_economic_sector_id'=>'required|integer|exists:economic_sectors,id',
-            'fk_membership_id'=>'required|integer|exists:memberships,id',
+            'fk_economic_sector_id'=>'integer|exists:economic_sectors,id',
+            'fk_membership_id'=>'integer|exists:memberships,id',
             'created_at'=>'nullable|date|after:start_date',
             'updated_at'=>'nullable|date|after:start_date'
         ];

@@ -18,9 +18,10 @@ class MembershipsTableSeeder extends Seeder
             //['name'=>'Prueba Gratis','duration'=>'30','cost'=>'0'],
             ['name'=>'Mensual','duration'=>'31','cost'=>'10000'],
             ['name'=>'Semestral','duration'=>'186','cost'=>'50000'],
-            ['name'=>'Anual','duration'=>'186','cost'=>'50000']
+            ['name'=>'Anual','duration'=>'186','cost'=>'50000'],
+            ['name'=>'gratis','duration'=>'186','cost'=>'50000']
         ],
-            ['name'],['duration'],['cost']
+            ['name','duration'],['cost']
         );
     }
 }

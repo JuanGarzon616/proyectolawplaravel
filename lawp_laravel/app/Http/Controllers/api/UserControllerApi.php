@@ -50,7 +50,7 @@ class UserControllerApi extends Controller
         return user::get();
     }
 
-    public function register(userRequest $request)
+    public function register(UserRequest $request)
     {
         $user = user::create([
             'document'=>$request->document,
