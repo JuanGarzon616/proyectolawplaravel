@@ -19,20 +19,17 @@ class CreateUsersTable extends Migration
             $table->string('names',50);
             $table->string('last_names',50);
             $table->string('direcction',50);
+            $table->string('image')->nullable();
             $table->bigInteger('tellephone1');
             $table->bigInteger('tellephone2')->nullable();
             $table->string('mail',50)->unique();
             $table->string('password');
             $table->string('token')->nullable();
+            $table->boolean('is_admin')->nullable();
             $table->foreignId('fk_document_type_id')
                 ->constrained()
                 ->references('id')
                 ->on('document_types');
-            $table->foreignId('fk_rol_id')
-                ->default(1)
-                ->constrained()
-                ->references('id')
-                ->on('rols');
             $table->foreignId('fk_municipality_id')
                 ->constrained()
                 ->references('id')

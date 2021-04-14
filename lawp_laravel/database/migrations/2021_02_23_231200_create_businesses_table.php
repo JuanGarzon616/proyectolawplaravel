@@ -19,6 +19,7 @@ class CreateBusinessesTable extends Migration
             $table->bigInteger('tellephone1');
             $table->bigInteger('tellephone2');
             $table->string('bussiness_name',100);
+            $table->string('image')->nullable();
             $table->string('name',30);
             $table->string('password');
             $table->string('mail',100);

@@ -23,6 +23,7 @@ Route::post('/user/register','\App\Http\Controllers\api\UserControllerApi@regist
 Route::group(['middleware'=>['jwt.verify']],function(){
     Route::post('user','\App\Http\Controllers\api\UserControllerApi@getAuthenticatedUser');
 
+
     //Route::get('user/{id}',[\App\Http\Controllers\api\UserControllerApi::class,'show']);
 });
 //Route::apiResource('user',\App\Http\Controllers\api\UserControllerApi::class);

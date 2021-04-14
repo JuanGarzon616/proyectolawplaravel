@@ -20,11 +20,12 @@ class user extends Authenticatable implements JWTSubject
         'direcction',
         'tellephone1',
         'telephone2',
+        'image',
         'mail',
         'password',
         'token',
         'fk_document_type_id',
-        'fk_rol_id',
+        'is_admin',
         'fk_municipality_id'
     ];
     protected $hidden = ['password','token'];
@@ -33,10 +34,7 @@ class user extends Authenticatable implements JWTSubject
     {
         return $this->belongsTo(document_type::class,'fk_document_type_id');
     }
-    public function rol()
-    {
-        return $this->belongsTo(rol::class,'fk_rol_id');
-    }
+
     public function municipality()
     {
         return $this->belongsTo(municipality::class,'fk_municipality_id');
