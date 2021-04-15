@@ -26,7 +26,8 @@ class user extends Authenticatable implements JWTSubject
         'token',
         'fk_document_type_id',
         'is_admin',
-        'fk_municipality_id'
+        'fk_municipality_id',
+        'fk_business_id'
     ];
     protected $hidden = ['password','token'];
 
@@ -38,6 +39,9 @@ class user extends Authenticatable implements JWTSubject
     public function municipality()
     {
         return $this->belongsTo(municipality::class,'fk_municipality_id');
+    }
+    public function business(){
+        return $this->belongsTo(business::class,'fk_business_id');
     }
 
     public function getJWTIdentifier()

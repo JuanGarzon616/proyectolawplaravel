@@ -4,10 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class business extends Authenticatable implements JWTSubject
+class business extends model
 {
     use HasFactory;
     protected $table = "businesses";
@@ -17,16 +15,17 @@ class business extends Authenticatable implements JWTSubject
         'tellephone1',
         'tellephone2',
         'bussiness_name',
-        'name',
+        'legal_name',
         'password',
+        'image',
         'mail',
-        'token',
+        'constitution_date',
         'member_remaining',
         'fk_economic_sector_id',
         'fk_municipality_id',
         'fk_membership_id'
     ];
-    protected $hidden = ['password','token'];
+    protected $hidden = ['password'];
 
     public function economicSectors()
     {
@@ -44,14 +43,8 @@ class business extends Authenticatable implements JWTSubject
     {
         return $this->belongsTo(membership::class,'fk_membership_id');
     }
-
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
+    public function user(){
+        return $this->hasMany(user::class);
     }
 
-    public function getJWTCustomClaims()
-    {
-        return [];
-    }
 }

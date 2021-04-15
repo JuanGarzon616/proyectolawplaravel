@@ -21,19 +21,17 @@ class BusinessRequest extends FormRequest
     public function rules()
     {
         return [
+            'id'=>'required|exists:users,id|integer',
             'nit'=>'required|unique:businesses,nit|integer|max:99999999999999999',
             'bussiness_name'=>'required|max:100',
-            'name'=>'required|max:100',
+            'legal_name'=>'required|max:100',
+            'cdate'=>'required|date|before:today',
             'tellephone1'=>'required|integer|max:99999999999999999',
             'tellephone2'=>'integer|nullable|max:99999999999999999',
             'mail'=>'required|unique:businesses,mail|max:50|regex:/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',
-            'password'=>'required|min:10|max:30|same:password2',
-            //'password2'=>'required|min:10|max:30',
             'fk_municipality_id'=>'required|integer|exists:municipalities,id',
             'fk_economic_sector_id'=>'integer|exists:economic_sectors,id',
             'fk_membership_id'=>'integer|exists:memberships,id',
-            'created_at'=>'nullable|date|after:start_date',
-            'updated_at'=>'nullable|date|after:start_date'
         ];
     }
 

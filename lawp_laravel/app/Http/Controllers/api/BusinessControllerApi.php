@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BusinessRequest;
 use App\Models\business;
+use App\Models\user;
 use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
@@ -17,39 +18,6 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class BusinessControllerApi extends Controller
 {
-
-    //protected $guard ="business";
-
-    public function authenticate(Request $request){
-        //Config::set('jwt.user', 'App\Admin');
-        Config::set('auth.providers.users.model', business::class);
-        $credenetial = $request->only('mail','password');
-        try{
-            if(!$token = JWTAuth::attempt($credenetial)){
-                return response()->json(['error'=>'Invalid Credentials'],400);
-            }
-        }catch(JWTException $e){
-            return response()->json(['error'=>'no se pudo crear token']);
-        }
-        return response()->json(compact('token'));
-    }
-
-    public function getAuthenticatedUser()
-    {
-        try {
-            if (!$user = JWTAuth::parseToken()->authenticate()) {
-                return response()->json(['user_not_found'], 404);
-            }
-        } catch (TokenExpiredException $e) {
-            return response()->json(['token_expired'], $e->getStatusCode());
-        } catch (TokenInvalidException $e) {
-            return response()->json(['token_invalid'], $e->getStatusCode());
-        } catch (JWTException $e) {
-            return response()->json(['token_absent'], $e->getStatusCode());
-        }
-        return response()->json(compact('user'));
-    }
-
     public function index()
     {
         return business::get();
@@ -61,19 +29,19 @@ class BusinessControllerApi extends Controller
         $business = business::create([
             'bussiness_name'=>$request->bussiness_name,
             'nit'=>$request->nit,
-            'name'=>$request->name,
+            'legal_name'=>$request->legal_name,
+            'constitution_date'=>$request->cdate,
             'tellephone1'=>$request->tellephone1,
             'tellephone2'=>$request->tellephone2,
             'mail'=>$request->mail,
-            'password'=>Hash::make($request->paswword),
             'member_remaining'=>carbon::now()->addMonth(),
             'fk_economic_sector_id'=>$request->esector,
             'fk_municipality_id'=>$request->fk_municipality_id
         ]);
 
-        $token = JWTAuth::fromUser($business);
+        user::where('id',$request->id)->update(['fk_business_id'=>$business->id,'is_admin'=>3]);
 
-        return response()->json(compact('business','token'),201);
+        return response()->json(compact('business'),201);
     }
 
     public function show($id)
