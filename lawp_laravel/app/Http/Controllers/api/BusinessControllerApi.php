@@ -46,7 +46,7 @@ class BusinessControllerApi extends Controller
 
     public function show($id)
     {
-        //
+        return business::find($id);
     }
 
     /**

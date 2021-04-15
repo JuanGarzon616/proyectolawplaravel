@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\IsBusiness;
 use App\Http\Middleware\JWTBusMidleware;
 use App\Http\Middleware\JWTMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'jwt.verify'=> JWTMiddleware::class,
         'is_admin'=>IsAdmin::class,
+        'is_business'=>IsBusiness::class
     ];
 }

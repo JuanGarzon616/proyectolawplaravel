@@ -5,17 +5,16 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class IsAdmin
+class IsBusiness
 {
 
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->is_admin==1){
+        if(auth()->user()->is_admin==2){
             return $next($request);
         }
-        $error = 'User isnt admin';
+        $error = 'User isn business';
 
-        return response()->json(compact('error'),401);
-
+        return response()->json(compact('error'));
     }
 }
