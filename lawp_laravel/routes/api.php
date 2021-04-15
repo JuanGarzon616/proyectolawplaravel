@@ -16,12 +16,17 @@ Route::group(['middleware'=>['jwt.verify']],function(){
     Route::group(['middleware'=>['is_admin']],function(){
         Route::get('users',[\App\Http\Controllers\api\UserControllerApi::class,'index']);
     });
-
-    //Route::get('user/{id}',[\App\Http\Controllers\api\UserControllerApi::class,'show']);
 });
 //Route::apiResource('user',\App\Http\Controllers\api\UserControllerApi::class);
 
-Route::post('business',[\App\Http\Controllers\api\BusinessControllerApi::class,'store']);
+Route::post('/business/register',[\App\Http\Controllers\api\BusinessControllerApi::class,'register']);
+Route::post('/business/login',[\App\Http\Controllers\api\BusinessControllerApi::class,'authenticate']);
+
+Route::group(['middleware'=>['jwt.bus.verify']],function(){
+    Route::get('/business',[\App\Http\Controllers\api\BusinessControllerApi::class,'index']);
+});
+
+
 
 Route::get('departament',[\App\Http\Controllers\api\DepartamentControllerApi::class,'index'])->name('departament.index');
 Route::get('departament/{id}',[\App\Http\Controllers\api\DepartamentControllerApi::class,'show'])->name('departament.show');

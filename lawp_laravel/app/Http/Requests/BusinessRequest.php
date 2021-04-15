@@ -26,7 +26,7 @@ class BusinessRequest extends FormRequest
             'name'=>'required|max:100',
             'tellephone1'=>'required|integer|max:99999999999999999',
             'tellephone2'=>'integer|nullable|max:99999999999999999',
-            'mail'=>'required|unique:users,mail|max:50|regex:/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',
+            'mail'=>'required|unique:businesses,mail|max:50|regex:/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',
             'password'=>'required|min:10|max:30|same:password2',
             //'password2'=>'required|min:10|max:30',
             'fk_municipality_id'=>'required|integer|exists:municipalities,id',

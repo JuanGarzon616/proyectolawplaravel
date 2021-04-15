@@ -46,6 +46,11 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'businesapi' => [
+            'driver' => 'token',
+            'provider' => 'business',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -71,10 +76,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'business' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\business::class,
+        ],
     ],
 
     /*
