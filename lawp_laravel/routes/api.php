@@ -21,10 +21,10 @@ Route::group(['middleware'=>['jwt.verify']],function(){
 
 Route::post('/business/register',[\App\Http\Controllers\api\BusinessControllerApi::class,'register']);
 Route::post('/business/login',[\App\Http\Controllers\api\BusinessControllerApi::class,'authenticate']);
-
+/*
 Route::group(['middleware'=>['jwt.bus.verify']],function(){
     Route::get('/business',[\App\Http\Controllers\api\BusinessControllerApi::class,'index']);
-});
+});*/
 
 
 

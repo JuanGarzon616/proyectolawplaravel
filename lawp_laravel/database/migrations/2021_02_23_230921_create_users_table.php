@@ -26,6 +26,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('token')->nullable();
             $table->boolean('is_admin')->nullable();
+            $table->foreignId('fk_business_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('set null')
+                ->references('id')
+                ->on('businesses');
             $table->foreignId('fk_document_type_id')
                 ->constrained()
                 ->references('id')

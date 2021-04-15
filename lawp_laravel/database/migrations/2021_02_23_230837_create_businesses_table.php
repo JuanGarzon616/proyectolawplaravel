@@ -20,8 +20,9 @@ class CreateBusinessesTable extends Migration
             $table->bigInteger('tellephone2')->nullable();
             $table->string('bussiness_name',100);
             $table->string('image')->nullable();
-            $table->string('name',30);
-            $table->string('password');
+            $table->string('legal_name',30);
+            $table->date('constitution_date');
+            //$table->string('password');
             $table->string('mail',100)->unique();
             $table->dateTime('member_remaining');
             $table->string('token')->nullable();
