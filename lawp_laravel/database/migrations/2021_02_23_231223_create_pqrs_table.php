@@ -30,6 +30,7 @@ class CreatePqrsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreignId('fk_status_id')
+                ->default(1)
                 ->constrained()
                 ->references('id')
                 ->on('status');
