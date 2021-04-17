@@ -11,22 +11,18 @@ class PqrRequest extends FormRequest
 
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function rules()
     {
         return [
-            'affair'=>'required|exists:users,id|integer',
-            'description'=>'required|unique:businesses,nit|integer|max:99999999999999999',
-            'legal_name'=>'required|max:100',
-            'cdate'=>'required|date|before:today',
-            'tellephone1'=>'required|integer|max:99999999999999999',
-            'tellephone2'=>'integer|nullable|max:99999999999999999',
-            'mail'=>'required|unique:businesses,mail|max:50|regex:/^[^0-9][_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/',
-            'fk_municipality_id'=>'required|integer|exists:municipalities,id',
-            'fk_economic_sector_id'=>'integer|exists:economic_sectors,id',
-            'fk_membership_id'=>'integer|exists:memberships,id',
+            'affair'=>'required|max:50',
+            'description'=>'required|max:65500',
+            'date'=>'required|date|before:today',
+            'fk_user_id'=>'required|integer|exists:users,id',
+            'fk_bussiness_id'=>'required|integer|exists:businesses,id',
+            'attachment[url]'=>'required'
         ];
     }
 
