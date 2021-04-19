@@ -15,7 +15,7 @@ class CreatePqrTypesTable extends Migration
     {
         Schema::create('pqr_types', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name',20);
         });
     }
 
