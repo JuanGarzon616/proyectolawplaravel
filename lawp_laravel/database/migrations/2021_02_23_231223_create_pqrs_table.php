@@ -34,6 +34,11 @@ class CreatePqrsTable extends Migration
                 ->constrained()
                 ->references('id')
                 ->on('status');
+            $table->foreignId('fk_pqr_type_id')
+                ->default(1)
+                ->constrained()
+                ->references('id')
+                ->on('pqr_types');
             $table->timestamps();
         });
     }

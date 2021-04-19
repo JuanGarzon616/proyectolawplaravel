@@ -30,9 +30,12 @@ class PqrControllerApi extends Controller
 
             foreach ($request->attachment as $adjunto){
 
+                //dd($adjunto['archive']);
+                $adjunto['archive']->store('public/files');
+
                 $adj = attachment::create([
                     'url'=>$adjunto['url'],
-                    'archive'=>$adjunto['archive'],
+                    'archive'=>$adjunto['archive']->getClientOriginalName(),
                     'fk_pqr_id'=>$pqr['id']
                 ]);
             }
@@ -63,3 +66,23 @@ class PqrControllerApi extends Controller
         //
     }
 }
+/*
+ *
+ {
+
+    "affair": "prueba",
+    "description":"<h1>holaprueba</h1>",
+    "date":"2021/04/15",
+    "fk_user_id": 1,
+    "fk_bussiness_id": 1,
+    "attachment": [{
+        "url": "ho568lakase.com",
+        "archive": null
+    },{
+        "url": "aa",
+        "archive": null
+    },{
+        "url": "23e.com",
+        "archive": null
+    }]
+}*/

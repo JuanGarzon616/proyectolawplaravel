@@ -23,7 +23,6 @@ class CreateAttachmentsTable extends Migration
                 ->references('id')
                 ->on('pqrs')
                 ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

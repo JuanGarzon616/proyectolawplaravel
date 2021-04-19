@@ -15,7 +15,8 @@ class pqr extends Model
         'description',
         'date',
         'fk_user_id',
-        'fk_bussiness_id'
+        'fk_bussiness_id',
+        'fk_pqr_type_id'
     ];
 
     public function user()
@@ -25,5 +26,8 @@ class pqr extends Model
     public function business()
     {
         return $this->belongsTo(business::class,'fk_bussiness_id');
+    }
+    public function pqrType(){
+        return $this->belongsTo(pqrType::class,'fk_pqr_type_id');
     }
 }

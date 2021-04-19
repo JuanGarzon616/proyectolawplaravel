@@ -15,7 +15,7 @@ class attachment extends Model
         'archive',
         'fk_pqr_id'
     ];
-
+    public $timestamps = false;
 
     public function pqr()
     {
