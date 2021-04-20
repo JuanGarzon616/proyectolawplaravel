@@ -8,6 +8,7 @@ use App\Models\attachment;
 use App\Models\pqr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PqrControllerApi extends Controller
 {
@@ -33,7 +34,8 @@ class PqrControllerApi extends Controller
 
                 //dd($adjunto['archive']->getRealPath());
                 //dd($adjunto['archive']->store('public/files'));
-                $name = $adjunto['archive']->getClientOriginalName();
+                //$name = Str::random(30).str_replace(' ',Str::random(5),$adjunto['archive']->getClientOriginalExtension());
+                $name = Str::random(50).'.'.$adjunto['archive']->getClientOriginalExtension();
                 $adjunto['archive']->move('storage/files',$name);
 
                 $adj = attachment::create([
