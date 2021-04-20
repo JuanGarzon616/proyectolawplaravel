@@ -49,11 +49,6 @@ class BusinessControllerApi extends Controller
         return business::find($id);
     }
 
-    public function edit($id)
-    {
-        //
-    }
-
     public function update(Request $request, $id)
     {
         //

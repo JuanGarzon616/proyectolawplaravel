@@ -4,11 +4,11 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserRequestUpdate;
 use App\Models\user;
-//use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-//use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Support\Str;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -61,7 +61,7 @@ class UserControllerApi extends Controller
             'tellephone2'=>$request->tellephone2,
             'mail'=>$request->mail,
             'password'=>Hash::make($request->password),
-            'image'=>$request->image,
+            'image'=>'http://127.0.0.1:8000/storage/images/img-default.jpg',
             'fk_document_type_id'=>$request->fk_document_type_id,
             'fk_municipality_id'=>$request->fk_municipality_id,
             'created_at'=>$request->created_at,
@@ -78,14 +78,30 @@ class UserControllerApi extends Controller
         return user::where('id',$id)->get();
     }
 
-    public function update(Request $request, $id)
+    public function update(UserRequestUpdate $request, $id)
     {
-        //
+        if($request->image){
+
+            $name = 'http://127.0.0.1:8000/storage/images/'.Str::random(50).'.'.$request->image->getClientOriginalExtension();
+            $request->image->move('storage/images',$name);
+        }
+
+        $update = user::find($id)->update([
+            'direcction'=>$request->direcction,
+            'tellephone1'=>$request->tell1,
+            'tellephone2'=>$request->tell2,
+            'password'=>Hash::make($request->pas),
+            'image'=>$name
+        ]);
+        $msg = 'User updated '.$update;
+        return response()->json(compact('msg'));
     }
 
     public function destroy($id)
     {
-        //
+        $delete =user::destroy($id);
+        $msg = 'User eliminated '.$delete;
+        return response()->json(compact('msg'));
     }
 
 }

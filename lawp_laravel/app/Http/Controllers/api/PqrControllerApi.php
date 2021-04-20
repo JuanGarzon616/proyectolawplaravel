@@ -60,31 +60,13 @@ class PqrControllerApi extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        //dd($request->status);
+        //return pqr::find($request->id)->update(['fk_status_id'=>$request->status]);
+        return pqr::where('id',$id)->update(['fk_status_id'=>$request->status]);
     }
 
     public function destroy($id)
     {
-        //
+        return pqr::destroy($id);
     }
 }
-/*
- *
- {
-
-    "affair": "prueba",
-    "description":"<h1>holaprueba</h1>",
-    "date":"2021/04/15",
-    "fk_user_id": 1,
-    "fk_bussiness_id": 1,
-    "attachment": [{
-        "url": "ho568lakase.com",
-        "archive": null
-    },{
-        "url": "aa",
-        "archive": null
-    },{
-        "url": "23e.com",
-        "archive": null
-    }]
-}*/
