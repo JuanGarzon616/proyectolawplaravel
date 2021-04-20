@@ -7,6 +7,7 @@ use App\Http\Requests\PqrRequest;
 use App\Models\attachment;
 use App\Models\pqr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PqrControllerApi extends Controller
 {
@@ -30,12 +31,14 @@ class PqrControllerApi extends Controller
 
             foreach ($request->attachment as $adjunto){
 
-                //dd($adjunto['archive']);
-                $adjunto['archive']->store('public/files');
+                //dd($adjunto['archive']->getRealPath());
+                //dd($adjunto['archive']->store('public/files'));
+                $name = $adjunto['archive']->getClientOriginalName();
+                $adjunto['archive']->move('storage/files',$name);
 
                 $adj = attachment::create([
                     'url'=>$adjunto['url'],
-                    'archive'=>$adjunto['archive']->getClientOriginalName(),
+                    'archive'=>'http://127.0.0.1:8000/storage/files/'.$name,
                     'fk_pqr_id'=>$pqr['id']
                 ]);
             }
