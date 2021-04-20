@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('names',50);
             $table->string('last_names',50);
             $table->string('direcction',50);
-            $table->string('image')->nullable();
+            $table->string('image')/*->default('http://127.0.0.1:8000/storage/images/img-default.jpg')*/->nullable();
             $table->bigInteger('tellephone1');
             $table->bigInteger('tellephone2')->nullable();
             $table->string('mail',50)->unique();
