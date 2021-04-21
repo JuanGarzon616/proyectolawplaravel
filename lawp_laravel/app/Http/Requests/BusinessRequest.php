@@ -21,7 +21,6 @@ class BusinessRequest extends FormRequest
     public function rules()
     {
         return [
-            'id'=>'required|exists:users,id|integer',
             'nit'=>'required|unique:businesses,nit|integer|max:99999999999999999',
             'bussiness_name'=>'required|max:100',
             'legal_name'=>'required|max:100',

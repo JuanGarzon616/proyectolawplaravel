@@ -28,12 +28,13 @@ Route::group(['middleware'=>['jwt.verify']],function(){
     });
 });
 
+Route::put('/business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'update']);
+Route::delete('/business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'destroy']);
 
-//Route::apiResource('/pqr',\App\Http\Controllers\api\PqrControllerApi::class);
 
 
 Route::get('departament',[\App\Http\Controllers\api\DepartamentControllerApi::class,'index'])->name('departament.index');
 Route::get('departament/{id}',[\App\Http\Controllers\api\DepartamentControllerApi::class,'show'])->name('departament.show');
 //Route::get('municipality/{id}',[\App\Http\Controllers\api\MunicipalityControllerApi::class,'index']);
-
+//Route::apiResource('/pqr',\App\Http\Controllers\api\PqrControllerApi::class);
 

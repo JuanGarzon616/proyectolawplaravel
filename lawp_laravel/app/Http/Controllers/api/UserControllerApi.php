@@ -99,7 +99,7 @@ class UserControllerApi extends Controller
 
     public function destroy($id)
     {
-        $delete =user::destroy($id);
+        $delete = user::destroy($id);
         $msg = 'User eliminated '.$delete;
         return response()->json(compact('msg'));
     }

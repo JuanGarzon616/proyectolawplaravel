@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BusinessRequest;
+use App\Http\Requests\BusinessUpdateRequest;
 use App\Models\business;
 use App\Models\user;
 use Carbon\Carbon;
@@ -49,13 +50,24 @@ class BusinessControllerApi extends Controller
         return business::find($id);
     }
 
-    public function update(Request $request, $id)
+    public function update(BusinessUpdateRequest $request, $id)
     {
-        //
+        $update = business::find($id)->update([
+            'tellephone1'=>$request->tellephone1,
+            'tellephone2'=>$request->tellephone2
+        ]);
+
+        $msg = 'Business Updated '.$update;
+
+        return response()->json(compact('msg'));
     }
 
     public function destroy($id)
     {
-        //
+        $delete = business::destroy($id);
+
+        $msg = 'Business Deleted '.$delete;
+
+        return response()->json(compact('msg'));
     }
 }
