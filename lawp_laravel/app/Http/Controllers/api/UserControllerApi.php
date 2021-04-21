@@ -44,7 +44,6 @@ class UserControllerApi extends Controller
         return response()->json(compact('user'));
     }
 
-
     public function index()
     {
         return user::get();
