@@ -7,15 +7,13 @@ use Illuminate\Http\Request;
 
 class IsUser
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if(auth()->user()->is_admin==1 or null){
+            return $next($request);
+        }
+        $error = 'User isnt normal user';
+
+        return response()->json(compact('error'));
     }
 }
