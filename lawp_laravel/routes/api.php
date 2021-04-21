@@ -18,18 +18,20 @@ Route::group(['middleware'=>['jwt.verify']],function(){
     Route::delete('/user/{id}',[\App\Http\Controllers\api\UserControllerApi::class,'destroy']);
 
     Route::group(['middleware'=>['is_admin']],function(){
-        Route::get('users',[\App\Http\Controllers\api\UserControllerApi::class,'index']);
+        Route::get('/users/',[\App\Http\Controllers\api\UserControllerApi::class,'index']);
+        Route::get('/business/',[\App\Http\Controllers\api\BusinessControllerApi::class,'index']);
     });
 
     Route::group(['middleware'=>['is_business']],function (){
-        Route::get('business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'show']);
+        Route::get('/business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'show']);
         Route::get('/pqr/business/{id}',[\App\Http\Controllers\api\PqrControllerApi::class,'showForBus']);
+        Route::put('/business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'update']);
+        Route::delete('/business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'destroy']);
 
     });
 });
 
-Route::put('/business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'update']);
-Route::delete('/business/{id}',[\App\Http\Controllers\api\BusinessControllerApi::class,'destroy']);
+
 
 
 

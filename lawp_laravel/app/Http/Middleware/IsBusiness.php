@@ -10,7 +10,7 @@ class IsBusiness
 
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->is_admin==2){
+        if(auth()->user()->is_admin==2 or 1){
             return $next($request);
         }
         $error = 'User isn business';

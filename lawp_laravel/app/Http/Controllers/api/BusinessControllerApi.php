@@ -40,7 +40,7 @@ class BusinessControllerApi extends Controller
             'fk_municipality_id'=>$request->fk_municipality_id
         ]);
 
-        user::where('id',$request->id)->update(['fk_business_id'=>$business->id,'is_admin'=>3]);
+        user::where('id',$request->id)->update(['fk_business_id'=>$business->id,'is_admin'=>2]);
 
         return response()->json(compact('business'),201);
     }
