@@ -6,24 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMunicipalitiesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name',45);
+            //$table->bigInteger('fk_departaments_id')->unsigned();
+            $table->foreignId('fk_departaments_id')
+                ->constrained()
+                ->references('id')
+                ->on('departament');
+            //$table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('municipalities');

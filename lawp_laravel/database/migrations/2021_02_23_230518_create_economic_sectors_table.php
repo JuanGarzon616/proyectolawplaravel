@@ -15,7 +15,8 @@ class CreateEconomicSectorsTable extends Migration
     {
         Schema::create('economic_sectors', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name',100);
+            //$table->timestamps();
         });
     }
 

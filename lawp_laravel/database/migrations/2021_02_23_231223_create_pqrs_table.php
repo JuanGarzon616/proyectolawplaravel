@@ -15,6 +15,30 @@ class CreatePqrsTable extends Migration
     {
         Schema::create('pqrs', function (Blueprint $table) {
             $table->id();
+            $table->string('affair',50);
+            $table->text('description');
+            $table->date('date');
+            $table->foreignId('fk_user_id')
+                ->constrained()
+                ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreignId('fk_bussiness_id')
+                ->constrained()
+                ->references('id')
+                ->on('businesses')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreignId('fk_status_id')
+                ->default(1)
+                ->constrained()
+                ->references('id')
+                ->on('status');
+            $table->foreignId('fk_pqr_type_id')
+                ->default(1)
+                ->constrained()
+                ->references('id')
+                ->on('pqr_types');
             $table->timestamps();
         });
     }

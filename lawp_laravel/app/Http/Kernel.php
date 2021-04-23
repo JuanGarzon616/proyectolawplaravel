@@ -2,6 +2,11 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CorsMiddleware;
+use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\IsBusiness;
+use App\Http\Middleware\IsUser;
+use App\Http\Middleware\JWTMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -62,5 +67,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'jwt.verify'=> JWTMiddleware::class,
+        'is_admin'=>IsAdmin::class,
+        'is_business'=>IsBusiness::class,
+        'is_normal_user'=>IsUser::class,
+        'cors'=>CorsMiddleware::class,
     ];
 }
