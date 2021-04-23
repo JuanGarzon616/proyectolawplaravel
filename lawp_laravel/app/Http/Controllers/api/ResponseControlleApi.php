@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ResponseRequest;
 use App\Models\attachment;
 use App\Models\response;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class ResponseControlleApi extends Controller
@@ -19,7 +19,7 @@ class ResponseControlleApi extends Controller
     public function store(ResponseRequest $request)
     {
         $rpn = response::create([
-            'response_pqr'=>$request->respone,
+            'response_pqr'=>$request->response,
             'fk_pqr_id'=>$request->pqrid
         ]);
 
@@ -27,12 +27,12 @@ class ResponseControlleApi extends Controller
 
             foreach ($request->attachment as $adjunto) {
 
-                $name = Str::random(50) . '.' . $adjunto['archive']->getClientOriginalExtension();
+                $name = Str::random(50).'.'.$adjunto['archive']->getClientOriginalExtension();
                 $adjunto['archive']->move('storage/files', $name);
 
                 $adj = attachment::create([
                     'url' => $adjunto['url'],
-                    'archive' => 'http://127.0.0.1:8000/storage/files/' . $name,
+                    'archive' => 'http://127.0.0.1:8000/storage/files/'.$name,
                     'fk_response_id' => $rpn->id
                 ]);
             }

@@ -18,7 +18,9 @@ class ResponseRequest extends FormRequest
     {
         return [
             'response_pqr'=>'required|max:65500',
-            'fk_pqr_id'=>'required|exists:pqrs,id'
+            'fk_pqr_id'=>'required|exists:pqrs,id',
+            'attachment.*.url'=>'max:224',
+            'attachment.*.archive'=>'file|max:5000|mimes:jpeg,png,pdf',
         ];
     }
 

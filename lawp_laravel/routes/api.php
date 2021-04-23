@@ -35,6 +35,7 @@ Route::group(['middleware'=>['jwt.verify']],function(){
     });
 });
 
+Route::post('/response/',[\App\Http\Controllers\api\ResponseControlleApi::class,'store']);
 
 Route::get('/response/{id}',[\App\Http\Controllers\api\ResponseControlleApi::class,'show']);
 
