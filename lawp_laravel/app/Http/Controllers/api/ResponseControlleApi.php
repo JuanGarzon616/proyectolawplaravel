@@ -23,8 +23,9 @@ class ResponseControlleApi extends Controller
             'fk_pqr_id'=>$request->pqrid
         ]);
 
-        if($request->attachment) {
 
+        if($request->attachment) {
+//dd($rpn->id);
             foreach ($request->attachment as $adjunto) {
 
                 $name = Str::random(50).'.'.$adjunto['archive']->getClientOriginalExtension();
@@ -36,9 +37,10 @@ class ResponseControlleApi extends Controller
                     'fk_response_id' => $rpn->id
                 ]);
             }
+            return response()->json(compact('rpn','adj'));
         }
 
-        return response()->json(compact('rpn','adj'));
+        return response()->json(compact('rpn'));
     }
 
     public function show($id)

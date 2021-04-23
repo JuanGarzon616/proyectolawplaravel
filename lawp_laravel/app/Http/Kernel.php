@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CorsMiddleware;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsBusiness;
 use App\Http\Middleware\IsUser;
@@ -70,5 +71,6 @@ class Kernel extends HttpKernel
         'is_admin'=>IsAdmin::class,
         'is_business'=>IsBusiness::class,
         'is_normal_user'=>IsUser::class,
+        'cors'=>CorsMiddleware::class,
     ];
 }

@@ -10,10 +10,11 @@ class attachment extends Model
     use HasFactory;
     protected $table='attachments';
     protected $primaryKey="id";
-    protected $fillable=[
+    protected $fillable = [
         'url',
         'archive',
-        'fk_pqr_id'
+        'fk_pqr_id',
+        'fk_response_id'
     ];
     public $timestamps = false;
 
