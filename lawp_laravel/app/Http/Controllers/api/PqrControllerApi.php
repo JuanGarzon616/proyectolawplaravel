@@ -51,12 +51,12 @@ class PqrControllerApi extends Controller
     public function showForUser($id)
     {
         //return pqr::where('fk_user_id', $id)->get();
-        return pqr::with('attachments')->where('fk_user_id', $id)->get();
+        return pqr::with('attachments')->with('responses')->where('fk_user_id', $id)->get();
     }
 
     public function showForBus($id)
     {
-        return pqr::where('fk_bussiness_id', $id)->get();
+        return pqr::with('attachments')->where('fk_bussiness_id', $id)->get();
     }
 
     public function update(Request $request, $id)

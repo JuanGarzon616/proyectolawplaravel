@@ -27,10 +27,16 @@ class pqr extends Model
     {
         return $this->belongsTo(business::class,'fk_bussiness_id');
     }
-    public function pqrType(){
+    public function pqrType()
+    {
         return $this->belongsTo(pqrType::class,'fk_pqr_type_id');
     }
-    public function attachments(){
+    public function attachments()
+    {
         return $this->hasMany(attachment::class,'fk_pqr_id');
+    }
+    public function responses()
+    {
+        return $this->hasMany(response::class,'fk_pqr_id');
     }
 }

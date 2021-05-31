@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ResponseRequest;
 use App\Models\attachment;
+use App\Models\pqr;
 use App\Models\response;
 use Illuminate\Support\Str;
 
@@ -22,10 +23,11 @@ class ResponseControlleApi extends Controller
             'response_pqr'=>$request->response,
             'fk_pqr_id'=>$request->pqrid
         ]);
+        //pqr::where('fk_pqr_id',$request->pqrid)->update([]);
 
 
         if($request->attachment) {
-//dd($rpn->id);
+
             foreach ($request->attachment as $adjunto) {
 
                 $name = Str::random(50).'.'.$adjunto['archive']->getClientOriginalExtension();
