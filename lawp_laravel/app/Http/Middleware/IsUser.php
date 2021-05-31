@@ -9,7 +9,7 @@ class IsUser
 {
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->user()->is_admin==null or 1){
+        if(auth()->user()->is_admin==3 or 1){
             return $next($request);
         }
         $error = 'User isnt normal user';

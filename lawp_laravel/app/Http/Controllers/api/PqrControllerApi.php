@@ -21,28 +21,28 @@ class PqrControllerApi extends Controller
     public function store(PqrRequest $request)
     {
         $pqr = pqr::create([
-            'affair'=>$request->affair,
-            'description'=>$request->description,
-            'date'=>$request->date,
-            'fk_user_id'=> $request->fk_user_id,
-            'fk_bussiness_id'=>$request->fk_bussiness_id
+            'affair' => $request->affair,
+            'description' => $request->description,
+            'date' => $request->date,
+            'fk_user_id' => $request->fk_user_id,
+            'fk_bussiness_id' => $request->fk_bussiness_id
         ]);
 
-        if($request->attachment){
+        if ($request->attachment) {
 
-            foreach ($request->attachment as $adjunto){
+            foreach ($request->attachment as $adjunto) {
 
-                $name = Str::random(50).'.'.$adjunto['archive']->getClientOriginalExtension();
-                $adjunto['archive']->move('storage/files',$name);
+                $name = Str::random(50) . '.' . $adjunto['archive']->getClientOriginalExtension();
+                $adjunto['archive']->move('storage/files', $name);
 
                 $adj = attachment::create([
-                    'url'=>$adjunto['url'],
-                    'archive'=>'http://127.0.0.1:8000/storage/files/'.$name,
-                    'fk_pqr_id'=>$pqr['id']
+                    'url' => $adjunto['url'],
+                    'archive' => 'http://127.0.0.1:8000/storage/files/' . $name,
+                    'fk_pqr_id' => $pqr['id']
                 ]);
             }
 
-            return response()->json(compact('pqr','adj'));
+            return response()->json(compact('pqr', 'adj'));
         }
 
         return response()->json(compact('pqr'));
@@ -50,19 +50,20 @@ class PqrControllerApi extends Controller
 
     public function showForUser($id)
     {
-        return pqr::where('fk_user_id',$id)->get();
+        //return pqr::where('fk_user_id', $id)->get();
+        return pqr::with('attachments')->where('fk_user_id', $id)->get();
     }
 
     public function showForBus($id)
     {
-        return pqr::where('fk_bussiness_id',$id)->get();
+        return pqr::where('fk_bussiness_id', $id)->get();
     }
 
     public function update(Request $request, $id)
     {
         //dd($request->status);
         //return pqr::find($request->id)->update(['fk_status_id'=>$request->status]);
-        return pqr::where('id',$id)->update(['fk_status_id'=>$request->status]);
+        return pqr::where('id', $id)->update(['fk_status_id' => $request->status]);
     }
 
     public function destroy($id)

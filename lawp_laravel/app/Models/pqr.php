@@ -30,4 +30,7 @@ class pqr extends Model
     public function pqrType(){
         return $this->belongsTo(pqrType::class,'fk_pqr_type_id');
     }
+    public function attachments(){
+        return $this->hasMany(attachment::class,'fk_pqr_id');
+    }
 }

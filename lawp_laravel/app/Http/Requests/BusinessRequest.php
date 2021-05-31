@@ -34,18 +34,6 @@ class BusinessRequest extends FormRequest
         ];
     }
 
-    /*public function messages()
-    {
-        return [
-            'name.required' => 'El campo :attribute es obligatorio.',
-            'email.required' => 'El campo :attribute es obligatorio.',
-            'email.email' => 'El campo :attribute debe sr un correo electronico.',
-            'identification.required' => 'El campo :attribute es obligatorio.',
-            'identification.integer' => 'El campo :attribute debe ser un numero.',
-            'cellphone.required' => 'El campo :attribute es o'
-        ];
-    }*/
-
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(

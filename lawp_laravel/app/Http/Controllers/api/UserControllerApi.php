@@ -25,6 +25,7 @@ class UserControllerApi extends Controller
         }catch(JWTException $e){
             return response()->json(['error'=>'no se pudo crear token']);
         }
+
         return response()->json(compact('token'));
     }
 
@@ -57,6 +58,7 @@ class UserControllerApi extends Controller
             'last_names'=>$request->last_names,
             'direcction'=>$request->direcction,
             'tellephone1'=>$request->tellephone1,
+            'is_admin'=> 3,
             'tellephone2'=>$request->tellephone2,
             'mail'=>$request->mail,
             'password'=>Hash::make($request->password),
