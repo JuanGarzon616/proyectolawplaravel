@@ -50,8 +50,13 @@ class PqrControllerApi extends Controller
 
     public function showForUser($id)
     {
-        //return pqr::where('fk_user_id', $id)->get();
         return pqr::with('attachments')->with('responses')->where('fk_user_id', $id)->get();
+    }
+    public function selectUserAffair(Request $request){
+        return pqr::with('attachments')->with('responses')->where([
+            ['fk_user_id', $request->id],
+            ['affair','like',$request->name.'%']
+        ])->get();
     }
 
     public function showForBus($id)

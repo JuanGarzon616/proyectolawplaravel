@@ -18,6 +18,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
 
     Route::group(['middleware' => ['is_normal_user']], function () {
         Route::post('/pqr/', [api\PqrControllerApi::class, 'store']);
+        Route::post('/pqr/affair/', [api\PqrControllerApi::class, 'selectUserAffair']);
         Route::post('/business/register/', [api\BusinessControllerApi::class, 'register']);
         Route::get('/pqr/user/{id}', [api\PqrControllerApi::class, 'showForUser']);
         Route::put('/pqr/{id}', [api\PqrControllerApi::class, 'update']);
