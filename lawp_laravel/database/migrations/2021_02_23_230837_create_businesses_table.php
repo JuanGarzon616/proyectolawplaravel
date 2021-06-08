@@ -18,9 +18,9 @@ class CreateBusinessesTable extends Migration
             $table->bigInteger('nit')->unique();
             $table->bigInteger('tellephone1');
             $table->bigInteger('tellephone2')->nullable();
-            $table->string('bussiness_name',100);
+            $table->string('bussiness_name',100)->unique();
             $table->string('image')->nullable();
-            $table->string('legal_name',30);
+            $table->string('legal_name',30)->unique();
             $table->date('constitution_date');
             $table->string('mail',100)->unique();
             $table->dateTime('member_remaining');

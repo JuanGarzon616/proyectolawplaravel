@@ -23,6 +23,10 @@ class BusinessControllerApi extends Controller
     {
         return business::get();
     }
+    public function selectBusi(){
+        return business::select('id','bussiness_name')->get();
+
+    }
 
 
     public function register(BusinessRequest $request)
