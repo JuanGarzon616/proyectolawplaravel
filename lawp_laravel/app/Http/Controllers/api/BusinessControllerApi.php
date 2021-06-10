@@ -24,7 +24,7 @@ class BusinessControllerApi extends Controller
         return business::get();
     }
     public function selectBusi(){
-        return business::select('id','bussiness_name')->get();
+        return business::select('id','bussiness_name','mail')->get();
 
     }
 
