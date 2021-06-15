@@ -23,7 +23,7 @@ class PqrRequest extends FormRequest
             'fk_user_id'=>'required|integer|exists:users,id',
             'fk_bussiness_id'=>'required|integer|exists:businesses,id',
             'attachment.*.url'=>'max:224',
-            'attachment.*.archive'=>'required|file|max:5000|mimes:jpeg,png,pdf',
+            'attachment.*.archive'=>'required|file|max:1000000|mimes:jpeg,png,pdf',
             'fk_pqr_Type_id'=>'required|exists:pqr_types,id'
         ];
     }
