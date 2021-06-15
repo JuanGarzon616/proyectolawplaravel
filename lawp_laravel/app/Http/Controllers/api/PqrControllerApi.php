@@ -32,7 +32,7 @@ class PqrControllerApi extends Controller
 
             foreach ($request->attachment as $adjunto) {
 
-                $name = Str::random(50) . '.' . $adjunto['archive']->getClientOriginalExtension();
+                $name = 'Adjunto '.Str::random(50) . '.' . $adjunto['archive']->getClientOriginalExtension();
                 $adjunto['archive']->move('storage/files', $name);
 
                 $adj = attachment::create([
