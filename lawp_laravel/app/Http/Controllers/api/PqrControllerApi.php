@@ -25,14 +25,15 @@ class PqrControllerApi extends Controller
             'description' => $request->description,
             'date' => $request->date,
             'fk_user_id' => $request->fk_user_id,
-            'fk_bussiness_id' => $request->fk_bussiness_id
+            'fk_bussiness_id' => $request->fk_bussiness_id,
+            'fk_pqr_type_id' => $request->fk_pqr_Type_id
         ]);
 
         if ($request->attachment) {
 
             foreach ($request->attachment as $adjunto) {
 
-                $name = 'Adjunto '.Str::random(50) . '.' . $adjunto['archive']->getClientOriginalExtension();
+                $name = 'Adjunto ' . Str::random(50) . '.' . $adjunto['archive']->getClientOriginalExtension();
                 $adjunto['archive']->move('storage/files', $name);
 
                 $adj = attachment::create([
@@ -50,18 +51,20 @@ class PqrControllerApi extends Controller
 
     public function showForUser($id)
     {
-        return pqr::with('attachments')->with('responses')->where('fk_user_id', $id)->orderBy('created_at','DESC')->get();
+        return pqr::with(['responses','attachments','business'])->where('fk_user_id', $id)->orderBy('created_at', 'DESC')->get();
     }
-    public function selectUserAffair(Request $request){
-        return pqr::with('attachments')->with('responses')->where([
+
+    public function selectUserAffair(Request $request)
+    {
+        return pqr::with('business')->where([
             ['fk_user_id', $request->id],
-            ['affair','like',$request->name.'%']
-        ])->get();
+            ['affair', 'like', $request->name . '%']
+        ])->orderBy('created_at', 'DESC')->get();
     }
 
     public function showForBus($id)
     {
-        return pqr::with('attachments')->with('responses')->where('fk_bussiness_id', $id)->orderBy('created_at','DESC')->get();
+        return pqr::with('attachments')->with('responses')->where('fk_bussiness_id', $id)->orderBy('created_at', 'DESC')->get();
     }
 
     public function update(Request $request, $id)
