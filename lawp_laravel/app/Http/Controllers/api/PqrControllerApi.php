@@ -50,7 +50,7 @@ class PqrControllerApi extends Controller
 
     public function showForUser($id)
     {
-        return pqr::with('attachments')->with('responses')->where('fk_user_id', $id)->get();
+        return pqr::with('attachments')->with('responses')->where('fk_user_id', $id)->orderBy('created_at','DESC')->get();
     }
     public function selectUserAffair(Request $request){
         return pqr::with('attachments')->with('responses')->where([
@@ -61,7 +61,7 @@ class PqrControllerApi extends Controller
 
     public function showForBus($id)
     {
-        return pqr::with('attachments')->where('fk_bussiness_id', $id)->get();
+        return pqr::with('attachments')->with('responses')->where('fk_bussiness_id', $id)->orderBy('created_at','DESC')->get();
     }
 
     public function update(Request $request, $id)
