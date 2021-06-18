@@ -20,7 +20,7 @@ class ResponseRequest extends FormRequest
             'response'=>'required|max:65500',
             'pqrid'=>'required|exists:pqrs,id',
             'attachment.*.url'=>'max:224',
-            'attachment.*.archive'=>'file|max:5000|mimes:jpeg,png,pdf',
+            'attachment.*.archive'=>'required|file|max:1000000|mimes:jpeg,png,pdf',
         ];
     }
 

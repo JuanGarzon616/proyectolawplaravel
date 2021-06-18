@@ -17,4 +17,8 @@ class response extends Model
     public function pqr(){
         return $this->belongsTo(pqr::class,'fk_pqr_id');
     }
+    public function attachments()
+    {
+        return $this->hasMany(attachment::class,'fk_pqr_id');
+    }
 }

@@ -51,7 +51,7 @@ class PqrControllerApi extends Controller
 
     public function showForUser($id)
     {
-        return pqr::with(['responses','attachments','business'])->where('fk_user_id', $id)->orderBy('created_at', 'DESC')->get();
+        return pqr::with(['responses.attachments','attachments','business'])->where('fk_user_id', $id)->orderBy('created_at', 'DESC')->get();
     }
 
     public function selectUserAffair(Request $request)
