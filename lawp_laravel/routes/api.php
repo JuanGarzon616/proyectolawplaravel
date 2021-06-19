@@ -9,7 +9,7 @@ Route::group(['middleware' => ['cors']], function () {
 
     Route::group(['middleware' => ['jwt.verify']], function () {
 
-        Route::put('/user/{id}', [api\UserControllerApi::class, 'update']);
+        Route::put('/user/', [api\UserControllerApi::class, 'update']);
         Route::delete('/user/{id}', [api\UserControllerApi::class, 'destroy']);
         Route::get('/user/', [api\UserControllerApi::class, 'getAuthenticatedUser']);
         Route::post('/response/', [api\ResponseControlleApi::class, 'store']);

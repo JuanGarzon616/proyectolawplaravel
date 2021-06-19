@@ -22,7 +22,8 @@ class UserRequestUpdate extends FormRequest
             'tellephone2'=>'integer|max:99999999999999999',
             'password'=>'min:10|max:30|same:password2',
             //'password2'=>'required|min:10|max:30',
-            'image'=>'file|max:2000|mimes:jpeg,png'
+            'image'=>'file|max:100000|mimes:jpeg,png',
+            'id'=>'required|integer|exists:users,id',
         ];
     }
 
